@@ -16,14 +16,9 @@ Vive dentro del repo de capacitación `arcanoid/` pero es **un proyecto aparte**
 - **Tailwind CSS v4** vía `@tailwindcss/postcss` (config CSS-first en `app/globals.css` con `@import "tailwindcss"` y `@theme inline`; **no hay `tailwind.config`**).
 - Sin framework de tests, sin CI, sin otras deps. Fuentes: `next/font/google` (Geist).
 
-## Comandos
+## Skills
+- Usa siempre /frontend-design para guiar la estructura y el diseño de los componentes de la interfaz de usuario.
 
-```
-npm run dev      # next dev (Turbopack), http://localhost:3000
-npm run build    # next build
-npm run start     # next start (requiere build previo)
-npm run lint     # eslint (flat config, eslint.config.mjs)
-```
 
 No hay runner de tests configurado.
 

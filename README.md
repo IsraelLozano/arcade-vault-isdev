@@ -15,5 +15,12 @@ https://github.com/Klerith/fernando-skills
 npx skills@latest add Klerith/fernando-skills
 ```
 
+## Comandos
 
-## Hola mundo v2
+```
+npm run dev      # next dev (Turbopack), http://localhost:3000
+npm run build    # next build
+npm run start     # next start (requiere build previo)
+npm run lint     # eslint (flat config, eslint.config.mjs)
+```
+
