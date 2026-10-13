@@ -6,7 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Qué es esto
 
-**Arcade Vault**: plataforma para jugar arcades online y competir por puntaje (ver `README.md`). Hoy es un scaffold de `create-next-app` sin tocar: `app/page.tsx` y `app/layout.tsx` siguen siendo el template por defecto (título "Create Next App", logos de Vercel). No hay lógica de negocio todavía.
+**Arcade Vault**: plataforma para jugar arcades online y competir por puntaje (ver `README.md`). Hoy es solo la capa visual (SPEC 01): 5 pantallas portadas de `reference/templates/` con datos mock y sesión fake en `localStorage`. No hay juegos, backend ni auth real.
+
+Estructura:
+- Rutas (`app/`): `/` biblioteca, `/juegos/[id]` detalle, `/jugar/[id]` reproductor, `/login`, `/salon`.
+- `components/`: UI; los que usan estado o `localStorage` son client components (`session-provider`, `nav`, `library`, `game-card`, `game-player`, `auth-form`, `hall-of-fame`).
+- `lib/games.ts`: tipos, catálogo mock (`GAMES`, `CATS`) y `seededScores` (determinista, sin `Math.random`).
+- `reference/templates/`: diseño original (React por CDN), solo referencia; ESLint lo ignora.
 
 Vive dentro del repo de capacitación `arcanoid/` pero es **un proyecto aparte**: carpeta `arcade-vault/` sin trackear en el git del padre (no es submódulo, no tiene git propio). El `CLAUDE.md` del padre (`../CLAUDE.md`) describe el juego Arkanoid y el flujo spec-driven; no aplica al código de acá.
 
