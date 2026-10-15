@@ -41,7 +41,7 @@ export function AuthForm() {
         </div>
 
         <form onSubmit={submit}>
-          <div className="field">
+          <div className="field slide-in">
             <label>Usuario</label>
             <input value={user} onChange={(e) => setUser(e.target.value)} placeholder="px_kai" />
           </div>
@@ -51,7 +51,7 @@ export function AuthForm() {
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="jugador@vault.gg" />
             </div>
           )}
-          <div className="field">
+          <div className="field slide-in">
             <label>Contraseña</label>
             <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder="••••••••" />
           </div>
