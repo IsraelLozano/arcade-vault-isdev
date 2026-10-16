@@ -5,15 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession } from "@/components/session-provider";
 
-const isLibraryPath = (p: string) => p === "/" || p.startsWith("/juegos") || p.startsWith("/jugar");
+const isLibraryPath = (p: string) => p.startsWith("/biblioteca") || p.startsWith("/juegos") || p.startsWith("/jugar");
 
 export function Nav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { user, signOut } = useSession();
 
+  const homeActive = pathname === "/";
   const libraryActive = isLibraryPath(pathname);
   const hallActive = pathname.startsWith("/salon");
+  const aboutActive = pathname === "/acerca";
   const authActive = pathname.startsWith("/login");
   const close = () => setOpen(false);
 
@@ -27,8 +29,10 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={libraryActive ? "active" : ""}>Biblioteca</Link>
+          <Link href="/" className={homeActive ? "active" : ""}>Inicio</Link>
+          <Link href="/biblioteca" className={libraryActive ? "active" : ""}>Biblioteca</Link>
           <Link href="/salon" className={hallActive ? "active" : ""}>Salón de la Fama</Link>
+          <Link href="/acerca" className={aboutActive ? "active" : ""}>Acerca de</Link>
         </div>
         <div className="spacer"></div>
         <div className="coin-counter">
@@ -46,8 +50,10 @@ export function Nav() {
       <div className={"av-mobile-backdrop" + (open ? " open" : "")} onClick={close}></div>
       <aside className={"av-mobile-panel" + (open ? " open" : "")}>
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENÚ</div>
-        <Link href="/" className={libraryActive ? "active" : ""} onClick={close}>Biblioteca</Link>
+        <Link href="/" className={homeActive ? "active" : ""} onClick={close}>Inicio</Link>
+        <Link href="/biblioteca" className={libraryActive ? "active" : ""} onClick={close}>Biblioteca</Link>
         <Link href="/salon" className={hallActive ? "active" : ""} onClick={close}>Salón de la Fama</Link>
+        <Link href="/acerca" className={aboutActive ? "active" : ""} onClick={close}>Acerca de</Link>
         <Link href="/login" className={authActive ? "active" : ""} onClick={close}>{user ? "Cuenta" : "Iniciar Sesión"}</Link>
         <div style={{ flex: 1 }}></div>
         <div className="pixel" style={{ fontSize: 9, color: "var(--ink-faint)", letterSpacing: "0.16em" }}>CRÉDITOS · 03</div>
